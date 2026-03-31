@@ -1,0 +1,70 @@
+---
+title: "The use of AI-based tools in Bioinformatics"
+subtitle: "Retreat de Bioinformáticos (CIBERONC)"
+date: "April 10, 2026"
+author: "Daniel González Camblor"
+output:
+  html_document:
+    theme: flatly
+    highlight: tango
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, eval = FALSE)
+```
+
+---
+
+## Requirements
+
+- **Google account**. You will need a Google account to access most of the tools used throughout the workshop. If you do not already have one, create one at [accounts.google.com](https://accounts.google.com). Make sure the account is fully verified (phone number confirmed).
+
+- **Visual Studio Code**. One of the most popular code editors. Implements GitHub Copilot, an extension that provides basic AI coding assistance. You can download it from [code.visualstudio.com](https://code.visualstudio.com), and then install the GitHub Copilot extension from the Extensions Marketplace. [Free for students](https://education.github.com/pack), limited use for non-students. GitHub Copilot is also integrated in RStudio.
+
+- **Antigravity**. Antigravity is an agent-focused code editor, although it also offers in-line coding assistance like GitHub Copilot. It has a generous free tier, and its interface is similar to VS Code (actually a fork of it). You can get it from [here](https://antigravity.google/). An alternative is Cursor, but we won't be using it in the workshop.
+
+Meeting these requirements is not strictly necessary to follow the workshop, but it will allow you to play along and get the most out of it.
+
+---
+
+## Outline
+
+### 1. Introduction
+
+#### 1.1 AI in Bioinformatics  
+#### 1.2 General Tips  
+
+### 2. Research Basics: From an Idea to an Actionable Plan
+
+#### 2.1 Drafting Ideas  
+**Tools:** Claude, Gemini, ChatGPT  
+
+#### 2.2 Searching the Literature  
+**Tool:** Perplexity  
+
+#### 2.3 Summarizing the Literature  
+**Tool:** NotebookLM  
+
+### 3. Coding with AI Assistants (Basics)
+
+#### 3.1 Chat-Based Tools vs. Coding Assistants  
+
+#### 3.2 The Use of the Inline Copilot and the Chat-Based Copilot
+**Tool:** Visual Studio Code, RStudio  
+
+### 4. Coding with AI Assistants (Medium)
+
+#### 4.1 Creating a Pipeline from Scratch: AI Agents 
+**Tool:** Antigravity  
+
+### 5. Coding with AI Assistants (Advanced)
+
+#### 5.1 Personalizing Your Agent  
+**Tool:** Antigravity  
+
+### 6. Downstream Applications of Chat-Based AI  
+**Tools:** Claude, Gemini, ChatGPT   
+
+### 7. The Risks of AI
+
+### 8. Next Steps and Conclusion
