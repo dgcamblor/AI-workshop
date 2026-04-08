@@ -1,5 +1,5 @@
 ---
-title: "The use of AI-based tools in Bioinformatics"
+title: "AI Tools for Bioinformatics"
 subtitle: "Retreat de Bioinformáticos (CIBERONC)"
 date: "April 10, 2026"
 author: "Daniel González Camblor"
@@ -8,6 +8,76 @@ output:
     theme: flatly
     highlight: tango
 ---
+
+```{=html}
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var preElements = document.querySelectorAll('pre');
+    
+    preElements.forEach(function(pre) {
+      // Create a positioning wrapper
+      var wrapper = document.createElement('div');
+      wrapper.style.position = 'relative';
+      wrapper.style.marginBottom = '20px';
+      
+      // Wrap the pre tag
+      pre.parentNode.insertBefore(wrapper, pre);
+      wrapper.appendChild(pre);
+      
+      // Create the copy button
+      var copyBtn = document.createElement('button');
+      copyBtn.className = 'copy-button';
+      copyBtn.textContent = 'Copy';
+      
+      // Attach button to wrapper (NOT inside the pre tag)
+      wrapper.appendChild(copyBtn);
+    });
+
+    // Initialize clipboard
+    var clipboard = new ClipboardJS('.copy-button', {
+      target: function(trigger) {
+        return trigger.previousElementSibling; // Targets the <pre> block
+      }
+    });
+
+    clipboard.on('success', function(e) {
+      e.trigger.textContent = 'Copied!';
+      setTimeout(function() {
+        e.trigger.textContent = 'Copy';
+      }, 2000);
+      e.clearSelection();
+    });
+  });
+</script>
+
+<style>
+  .copy-button {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    padding: 4px 12px;
+    font-size: 11px;
+    font-weight: bold;
+    text-transform: uppercase;
+    background-color: #95a5a6;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    z-index: 10;
+    transition: background-color 0.2s;
+  }
+  .copy-button:hover { 
+    background-color: #7f8c8d; 
+  }
+  
+  pre {
+    padding-top: 35px !important; 
+    margin: 0 !important;
+  }
+</style>
+```
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE, eval = FALSE)
@@ -31,40 +101,72 @@ Meeting these requirements is not strictly necessary to follow the workshop, but
 
 ### 1. Introduction
 
-#### 1.1 AI in Bioinformatics  
-#### 1.2 General Tips  
-
 ### 2. Research Basics: From an Idea to an Actionable Plan
 
 #### 2.1 Drafting Ideas  
-**Tools:** Claude, Gemini, ChatGPT  
+**Tools:** Claude, Gemini, ChatGPT
+
+```text
+I am a bioinformatician analyzing WES data on liquid biopsy for mCRC in a cohort of 30 patients at two timepoints: baseline and progression to first line therapy. I have identified that patients consistently acquired inactivating mutations in the ARID1A gene. They tend to be acquired by left-side tumors, relate to shorter PFS, and correlate with TMB. I'm missing analyses to explain a functional link to progression. Reflect on my findings and explore what should be my next steps: how to understand the implications of ARID1A mutations and how to expand upon my results, both with the WES data I already have and possibly with external datasets. You should provide an structured plan to fully understand the implications of this finding, with the translational perspective always in mind. Let’s focus on what I can do now, without generating any more data.
+```
 
 #### 2.2 Searching the Literature  
 **Tool:** Perplexity  
 
+```text
+What is ARID1A? What are the implications of its inactivation via mutation?
+```
+
+```text
+What studies have described its role in colorectal cancer? What's its relation to metastasis and therapy resistance?
+```
+
+```text
+Do ARID1A mutations have actionable potential? What is their role in immunotherapy response?
+```
+
 #### 2.3 Summarizing the Literature  
-**Tool:** NotebookLM  
+**Tool:** NotebookLM
 
-### 3. Coding with AI Assistants (Basics)
+```text
+What are the functional implications of ARID1A mutations?
+What strategies are proposed to treat ARID1A-deficient tumors?
+```
 
-#### 3.1 Chat-Based Tools vs. Coding Assistants  
+### 3. Coding with AI Assistants (Basics): Autocompletion and Code Generation
 
-#### 3.2 The Use of the Inline Copilot and the Chat-Based Copilot
-**Tool:** Visual Studio Code, RStudio  
+**Tool:** GitHub Copilot within Visual Studio Code, RStudio 
 
-### 4. Coding with AI Assistants (Medium)
+```text
+How would I use R to download TCGA SNV data for colon cancer?
+```
 
-#### 4.1 Creating a Pipeline from Scratch: AI Agents 
+```text
+I am writing a script to perform differential expression analysis with DESeq2 on TCGA data, based on ARID1A status. I intend to compare ARID1A-mut vs. ARID1A-wt cancer samples from CRC: all stages and just the IV stage. Align the two datasets (SNVs and RNA-seq), perform differential expression analysis and create a volcano plot.
+```
+
+### 4. Coding with AI Assistants (Medium): Agent-Based Programming
+
 **Tool:** Antigravity  
 
-### 5. Coding with AI Assistants (Advanced)
+```text
+I need to build a reproducible pipeline for cfChIP-seq data processing. The pipeline should process all paired-end FASTQ files located inside the data/ directory. The pipeline must include: 1) FastQC for quality control, 2) Trimmomatic for adapter removal, 3) Bowtie2 alignment to the hg38 genome, 4) Picard for deduplication, and 5) MACS3 for narrow peak calling. Please generate the bash script and set up a clear output directory structure (e.g., results/qc, results/bam, etc.). Add inline comments explaining the parameter choices specifically optimized for cell-free DNA (e.g., retaining short fragments, adjusting maximum insert sizes for alignment, and using BAMPE mode in MACS3). Route standard output and standard error for each step into its own log file in a logs/ directory.
+```
 
-#### 5.1 Personalizing Your Agent  
+### 5. Coding with AI Assistants (Advanced): Skills, MCPs
+
 **Tool:** Antigravity  
+
+Find `SKILL.md` inside `.agents/skills/nextflow-pipeline`.
 
 ### 6. Downstream Applications of Chat-Based AI  
-**Tools:** Claude, Gemini, ChatGPT   
+**Tools:** Claude, Gemini, ChatGPT
 
-### 7. The Risks of AI
+```text
+I am working on writing a Methods section directly from a bioinformatics pipeline. Help me create a skill to do it automatically.
+```
 
-### 8. Next Steps and Conclusion
+
+### 7. The Risks of AI (and How to Deal with Them)
+
+### 8. Conclusions
