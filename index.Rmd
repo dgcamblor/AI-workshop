@@ -164,7 +164,7 @@ I need to build a reproducible pipeline for cfChIP-seq data processing. The pipe
 
 Find `SKILL.md` inside `.agents/skills/nextflow-pipeline`.
 
-Re-execute the same prompt as in the previous section, but this time using the skill instead of the agent. Compare the results.
+Re-execute the same prompt as in the previous section. Compare the results.
 
 ### 6. Downstream Applications of Chat-Based AI  
 **Tools:** Claude, Gemini, ChatGPT
@@ -174,5 +174,11 @@ I am working on writing a Methods section directly from a bioinformatics pipelin
 ```
 
 ### 7. The Risks of AI (and How to Deal with Them)
+
+```bash
+curl -fsSL https://ollama.com/install.sh | sh
+
+ollama launch gemma4
+```
 
 ### 8. Conclusions
