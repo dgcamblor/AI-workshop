@@ -95,6 +95,11 @@ knitr::opts_chunk$set(echo = FALSE, eval = FALSE)
 
 Meeting these requirements is not strictly necessary to follow the workshop, but it will allow you to play along and get the most out of it.
 
+```bash
+git clone https://github.com/dgcamblor/AI-workshop.git
+```
+
+
 ---
 
 ## Outline
@@ -159,13 +164,14 @@ I need to build a reproducible pipeline for cfChIP-seq data processing. The pipe
 
 Find `SKILL.md` inside `.agents/skills/nextflow-pipeline`.
 
+Re-execute the same prompt as in the previous section, but this time using the skill instead of the agent. Compare the results.
+
 ### 6. Downstream Applications of Chat-Based AI  
 **Tools:** Claude, Gemini, ChatGPT
 
 ```text
 I am working on writing a Methods section directly from a bioinformatics pipeline. Help me create a skill to do it automatically.
 ```
-
 
 ### 7. The Risks of AI (and How to Deal with Them)
 
